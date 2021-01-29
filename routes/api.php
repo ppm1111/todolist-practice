@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TodoList\GetTaskList;
-use App\Http\Controllers\TodoList\AddTask;
-use App\Http\Controllers\TodoList\DeleteTask;
-use App\Http\Controllers\TodoList\UpdateTask;
 
 /*
 |--------------------------------------------------------------------------
