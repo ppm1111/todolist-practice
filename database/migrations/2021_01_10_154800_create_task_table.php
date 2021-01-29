@@ -15,8 +15,9 @@ class CreateTaskTable extends Migration
     {
         Schema::create('task', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('content');
+            $table->date('expected_date');
             $table->timestamps();
         });
     }
