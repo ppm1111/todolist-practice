@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\TodoList\TaskService;
 use App\Http\Requests\TaskRequest;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\TaskResource;
+use App\Http\Resources\SuccessResource;
 
 class UpdateTask extends Controller
 {
@@ -26,16 +26,15 @@ class UpdateTask extends Controller
 
     public function __invoke(TaskRequest $request, $id)
     {
-        $task = $this->taskService->getTask($id);
     
         $taskDto = new TaskDto();
         $taskDto->id = $id;
-        $taskDto->name = $task->name;
-        $taskDto->content = $task->content;
-        $taskDto->expectedDate = $task->expected_date;
+        $taskDto->name = $request->input('name');
+        $taskDto->content = $request->input('content');
+        $taskDto->expectedDate = $request->input('expected_date');
 
         $result = $this->taskService->updateTask($taskDto);
 
-        return new TaskResource($result);
+        return new SuccessResource();
     }
 }

@@ -10,6 +10,6 @@ class TaskDto extends BaseDto
     public $id;
     public $name;
     public $content;
-    public $exceptedDate;
+    public $expectedDate;
 
 }

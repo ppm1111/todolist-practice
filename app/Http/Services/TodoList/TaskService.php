@@ -25,13 +25,6 @@ class TaskService
 
     public function getTask($id) {
         $task = $this->taskRepository->getById($id);
-        if (empty($result)) {
-            $data = [
-                'module' => 'task',
-                'errorType' => 'TASK_NOT_FOUND',
-            ];
-            throw new NotFoundException($data);
-        }
         return $task;
     }
 
@@ -60,7 +53,8 @@ class TaskService
 
     public function updateTask(TaskDto $dto)
     {
-        $result = $this->taskRepository->getTask($dto->id);
+        $result = $this->taskRepository->getById($dto->id);
+
         if (empty($result)) {
             $data = [
                 'module' => 'task',
@@ -87,7 +81,7 @@ class TaskService
 
     public function deleteTask(int $id)
     {
-        $result = $this->taskRepository->getTask($id);
+        $result = $this->taskRepository->getById($id);
         if (empty($result)) {
             $data = [
                 'module' => 'task',

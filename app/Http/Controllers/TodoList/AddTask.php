@@ -31,7 +31,7 @@ class AddTask extends Controller
         $taskDto = new TaskDto();
         $taskDto->name = $request->input('name');
         $taskDto->content = $request->input('content');
-        $taskDto->exceptedDate = $request->input('excepted_date');
+        $taskDto->expectedDate = $request->input('expected_date');
 
         $result = $this->taskService->addTask($taskDto);
 

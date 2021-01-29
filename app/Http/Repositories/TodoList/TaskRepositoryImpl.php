@@ -37,7 +37,7 @@ class TaskRepositoryImpl implements TaskRepository
         $user = $this->task->create([
             'name' => $data->name,
             'content' => $data->content,
-            'excepted_date' => $data->exceptedDate
+            'expected_date' => $data->expectedDate
         ]);
 
         return $user;
@@ -45,15 +45,15 @@ class TaskRepositoryImpl implements TaskRepository
 
     public function update($data): int
     {
-        return $this->task->where('id' , $id)->update([
+        return $this->task->where('id' , $data->id)->update([
             'name' => $data->name,
             'content' => $data->content,
-            'excepted_date' => $data->exceptedDate
+            'expected_date' => $data->expectedDate
         ]);
     }
 
     public function delete(int $id) : ?int
     {
-        return $this->task->where('id', $id)->delete($id);
+        return $this->task->where('id', $id)->delete();
     }
 }
